@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/estilos.css}" />
+    <title>Añadir Género</title>
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--El Fontawesome en últimna versión-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    
+    <div class="row my-5 text-center">
+        <div class="col-12 user-img">
+            <a th:href="@{/index}"><img th:src="@{/img/usuario.png}"></a>
+        </div>
+    </div>
+
+    <form th:action="@{/genero/addG}" th:object="${genero}" method="post" >
+    <section class="form-register">
+
+        <h1 th:text="${accion}" class="text-info" id="tituloForm">Registrar Género</h1>
+        <br>
+        <label>
+            <h4>Nombre Género</h4>
+        </label>
+            <input type="text" class="controls"  id="nombreGenero" th:field="*{nombreGenero}"   placeholder="Ingrese el nombre del género" />
+            <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreGenero')}" th:errors="*{nombreGenero}"></div>
+        
+        
+            <label> 
+                <h4>Estado género</h4>
+            </label>
+            <input type="checkbox"  class="form-check form-switch"  id="estadoGenero" th:field="*{estadoGenero}" checked /> 
+            <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoGenero')}" th:errors="*{estadoGenero}"></div>
+        <button  type="submit" class="botons bg bg-info text-center" >REGISTRAR GÉNERO</button>
+
+      
+    </section>
+    </form>
+</body>
+
+</html>

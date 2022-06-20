@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/estilos.css}" />
+    <title>Añadir Género</title>
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--El Fontawesome en últimna versión-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    
+    <div class="row my-5 text-center">
+        <div class="col-12 user-img">
+            <a th:href="@{/index}"><img th:src="@{/img/usuario.png}"></a>
+        </div>
+    </div>
+
+    <form th:action="@{/disquera/addD}" th:object="${disquera}" method="post" >
+    <section class="form-register">
+
+        <h1 th:text="${accion}" class="text-info" id="tituloForm"></h1>
+        <br>
+        <label>
+            <h4>NIT</h4>
+        </label>
+        <input type="hidden" class="controls"  id="idDisquera" th:field="*{idDisquera}"/>
+
+            <input type="text" class="controls"  id="nitDisquera" th:field="*{nitDisquera}"   placeholder="Ingrese el nit de la disquera" />
+            <div class="form-text text-danger" th:if="${#fields.hasErrors('nitDisquera')}" th:errors="*{nitDisquera}"></div>
+
+            <label>
+                <h4>Nombre</h4>
+            </label>
+                <input type="text" class="controls"  id="nombreDisquera" th:field="*{nombreDisquera}"   placeholder="Ingrese el nombre de la disquera"/>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreDisquera')}" th:errors="*{nombreDisquera}"></div>
+
+            <label>
+                <h4>Telefono</h4>
+            </label>
+                <input type="text" class="controls"  id="telefonoDisquera" th:field="*{telefonoDisquera}"   placeholder="Ingrese el telefono" />
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('telefonoDisquera')}" th:errors="*{telefonoDisquera}"></div>
+
+        
+            <label> 
+                <h4>Direccion</h4>
+            </label>
+            <input type="text" class="controls"  id="direccionDisquera" th:field="*{direccionDisquera}"   placeholder="Ingrese la direccion" />
+            <div class="form-text text-danger" th:if="${#fields.hasErrors('direccionDisquera')}" th:errors="*{direccionDisquera}"></div>
+
+            <label> 
+                <h4>Estado</h4>
+            </label>
+            <input type="checkbox"  class="form-check form-switch"  id="estadoDisquera" th:field="*{estadoDisquera}" checked /> 
+            <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoDisquera')}" th:errors="*{estadoDisquera}"></div>
+
+        <button  type="submit" class="botons bg bg-info text-center" >REGISTRAR CANCIÓN</button>
+
+      
+    </section>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/estilos.css}">
+    <title>Disquera</title>
+    <!--JQUERY-->
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js}"></script>
+    <!--SWEET ALERT-->
+    <script th:src="@{//cdn.jsdelivr.net/npm/sweetalert2@11}"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+   
+
+    <!--El Fontawesome en últimna versión-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col">
+            <div class="row my-5 text-center">
+                <div class="col-12 user-img">
+                    <a th:href="@{index}"><img th:src="@{/img/usuario.png}"></a>
+                </div>
+                <div class="col-12 ">
+                    <h2 class="text-dark">Disquera</h2>
+                </div>
+
+            </div>
+            <div class="container"> 
+                <div class=row>
+                    <div class="col">
+                        <table class="table  table-striped  rounded">
+                            <thead class="bg bg-info">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NIT</th>
+                                    <th>Nombre</th>
+                                    <th>Telefono</th>
+                                    <th>Direccion</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg bg-dark text-light">
+                                <tr th:if="${disquera.size>0}" th:each="d:${disquera}">
+                                    <td th:text="${d.idDisquera}"></td>
+
+                                    <td th:text="${d.nitDisquera}"></td>
+
+                                    <td th:text="${d.nombreDisquera}"></td>
+
+                                    <td th:text="${d.telefonoDisquera}"></td>
+
+                                    <td th:text="${d.direccionDisquera}"></td>
+
+                                    <td>
+                                        <span class="badge bg-success active"th:if="${d.estadoDisquera==true}">Activo</span>                                            
+                                        <span class="badge bg-danger active" th:if="${d.estadoDisquera==false}">Inactivo</span>                                           
+                                    </td>
+                                    <td> 
+                                        <a rol="button" class="btn btn-info" th:onclick="|editarD('${d.idDisquera}')|">
+                                        <i class="fa-solid fa-pen"></i>
+                                        </a>
+
+                                        <a rol="button" class="btn btn-danger" th:onclick="|deleteD('${d.idDisquera}')|">                            
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a type="button" class="btn btn-info" href="addD">  
+                            <i class="bi bi-plus-circle"></i>Agregar Disquera
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/alerts.js}"></script>
+</body>
+
+</html>

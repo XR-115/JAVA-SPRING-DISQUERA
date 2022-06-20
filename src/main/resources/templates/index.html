@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{assets/estilos.css}">
+    <title>Genero</title>
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+
+    <!--El Fontawesome en últimna versión-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Disquera</title>
+</head>
+
+<body>
+    <br>
+    <div class="row justify-content-center" id="user-select">
+        <div class="col-12" >
+        <h1 class="text-center" id="titulo">DISQUERA</h1>
+        </div>
+    </div>
+    <!---------------------------------------------- SELECTORES DE ACCIÓN ------------------------------------------------>
+
+    <div class="row justify-content-center" id="user-select">
+
+        <section class="album">
+            <br>
+            <div class="col-12">
+                <a th:href="@{album/album}"><img th:src="@{img/album.png}" class="user-select"></a>
+            </div>
+            <h2 class="text-center">Álbum</h2>
+        </section>
+
+        <section class="genero">
+            <br>
+            <div class="col-12">
+                <a th:href="@{genero/genero}"><img th:src="@{img/genero.png}" class="user-select"></a>
+            </div>
+            <h2 class="text-center">Género</h2>
+        </section>
+
+        <section class="cancion">
+            <br>
+            <div class="col-1">
+                <a th:href="@{cancion/cancion}"><img th:src="@{img/deezer.png}" class="user-select"></a>
+            </div>
+            <h2 class="text-center">Canción</h2>
+        </section>
+
+        <section class="cancion">
+            <br>
+            <div class="col-1">
+                <a th:href="@{disquera/disquera}"><img th:src="@{img/tienda.png}" class="user-select"></a>
+            </div>
+            <h2 class="text-center">Disquera</h2>
+        </section>
+
+        <section class="cancion">
+            <br>
+            <div class="col-1">
+                <a th:href="@{artista/artista}"><img th:src="@{img/listen.png}" class="user-select"></a>
+            </div>
+            <h2 class="text-center">Artista</h2>
+        </section>
+        
+    </div>
+
+</body>
+
+</html>

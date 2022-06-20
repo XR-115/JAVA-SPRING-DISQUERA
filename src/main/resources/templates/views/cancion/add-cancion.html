@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/estilos.css}" />
+    <title>Añadir Género</title>
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--El Fontawesome en últimna versión-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    
+    <div class="row my-5 text-center">
+        <div class="col-12 user-img">
+            <a th:href="@{/index}"><img th:src="@{/img/usuario.png}"></a>
+        </div>
+    </div>
+
+    <form th:action="@{/cancion/addC}" th:object="${cancion}" method="post" >
+    <section class="form-register">
+
+        <h1 th:text="${accion}" class="text-info" id="tituloForm"></h1>
+        <br>
+        <label>
+            <h4>Nombre Canción</h4>
+        </label>
+        <input type="hidden" class="controls"  id="idCancion" th:field="*{idCancion}"/>
+            <input type="text" class="controls"  id="nombreCancion" th:field="*{nombreCancion}"   placeholder="Ingrese el nombre del género" />
+            <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreCancion')}" th:errors="*{nombreCancion}"></div>
+
+            <label>
+                <h4>Fecha</h4>
+            </label>
+                <input type="text" class="controls"  id="fechaCancion" th:field="*{fechaCancion}"   placeholder="Ingrese el nombre del género" />
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaCancion')}" th:errors="*{fechaCancion}"></div>
+
+            <label>
+                <h4>Duracion</h4>
+            </label>
+                <input type="text" class="controls"  id="duracionCancion" th:field="*{duracionCancion}"   placeholder="Ingrese el nombre del género" />
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('duracionCancion')}" th:errors="*{duracionCancion}"></div>
+
+        
+            <label> 
+                <h4>Estado género</h4>
+            </label>
+            <input type="checkbox"  class="form-check form-switch"  id="estadoCancion" th:field="*{estadoCancion}" checked /> 
+            <div class="form-text text-danger" th:if="${#fields.hasErrors('estadoCancion')}" th:errors="*{estadoCancion}"></div>
+        <button  type="submit" class="botons bg bg-info text-center" >REGISTRAR CANCIÓN</button>
+
+      
+    </section>
+    </form>
+</body>
+
+</html>
